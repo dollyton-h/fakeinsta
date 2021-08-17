@@ -3,8 +3,6 @@ const cors = require("cors");
 
 const app = express();
 
-const PORT = process.env.PORT || '5000'
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -36,7 +34,8 @@ app.get("/", (req, res) => {
     })
   );
 
-  app.listen(PORT, () => {
-    console.log(`server is running on port ${PORT}`);
-  })
-  
+  app.listen(process.env.PORT || 5000, () => {
+    console.log(
+      `SERVER IS RUNNING ON PORT 8080 || ENV PORT : ${process.env.PORT}`
+    );
+  });
