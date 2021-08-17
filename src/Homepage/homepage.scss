@@ -1,0 +1,207 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+
+.main {
+  background-color: #dcdde2;
+  min-height: 200vh;
+  overflow: auto;
+}
+
+.heads {
+  top: 0;
+  left: 0;
+  display: flex;
+
+  align-items: center;
+  transition: 0.6s;
+  position: fixed;
+  width: 100%;
+  padding: 25px 80px;
+  z-index: 999;
+}
+
+.heads.sticky {
+  background-color: whitesmoke;
+  padding: 10px 80px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.logo {
+  position: relative;
+  cursor: pointer;
+  transition: 0.6s;
+  img {
+    height: 80px;
+    width: 160px;
+  }
+  &:hover {
+    color: #b7ced2;
+  }
+}
+
+.nav {
+  display: flex;
+  color: white;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  margin-left: 600px;
+  li {
+    margin-right: 30px;
+    list-style: none;
+    cursor: pointer;
+    font-weight: 700;
+    font-family: "Rubik", sans-serif;
+    letter-spacing: 2px;
+    border: none;
+    color: #528e86;
+    position: relative;
+    a {
+      position: relative;
+      margin: 0px 15px;
+      text-decoration: none;
+      color: #528e86;
+      transition: 0.6s;
+      &:hover {
+        color: #f3bb5c;
+        // border-bottom: 1px solid orange;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        width: 0px;
+        height: 2px;
+        left: 50%;
+        bottom: 0;
+        background-color: #f3bb5c;
+        transition: all ease-in-out 0.15s;
+      }
+      &:hover::after {
+        width: 100%;
+        left: 0;
+      }
+    }
+  }
+}
+
+.heads.sticky .nav li a {
+  color: #528e86;
+}
+
+.hello {
+  color: #b7ced2;
+  font-size: 25px;
+  text-align: center;
+  margin-top: 130px;
+  letter-spacing: 2px;
+  font-family: "Rubik", sans-serif;
+}
+
+.nama {
+  text-align: left;
+  font-family: "Rubik", sans-serif;
+  color: #528e86;
+  font-size: 50px;
+  font-weight: bolder;
+  letter-spacing: 1px;
+  margin-top: 100px;
+  margin-left: 100px;
+}
+
+.front {
+  text-align: left;
+  color: #528e86;
+  font-size: 25px;
+  font-family: "Rubik", sans-serif;
+  letter-spacing: 1px;
+  margin-left: 100px;
+}
+.home-btn {
+  display: flex;
+  justify-content: left;
+  margin-left: 100px;
+  .btn-more {
+    color: white;
+    letter-spacing: 1px;
+    font-size: 15px;
+    font-family: "Rubik", sans-serif;
+    height: 50px;
+    width: 200px;
+    background-color: black;
+    box-shadow: inset 0 0 0 0 #f3bb5c;
+    transition: ease-out 0.3s;
+    cursor: pointer;
+    margin-top: 50px;
+    border-radius: 5px;
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+    &:hover {
+      box-shadow: inset 300px 0 0 0 #f3bb5c;
+      color: black;
+      letter-spacing: 1px;
+      font-size: 15px;
+      font-family: "Rubik", sans-serif;
+    }
+  }
+}
+
+.social-logo {
+  display: flex;
+  margin-top: 50px;
+  justify-content: left;
+  margin-left: 100px;
+}
+
+.git {
+  margin: 2px 50px 0px 50px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.sda {
+  display: flex;
+  margin-top: 100px;
+}
+
+.link,
+.twit {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.twit,
+.link,
+.git {
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+.skillss {
+  color: white;
+}
+
+.aboutComponent {
+  margin-top: -41px;
+}
+
+.illu {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  position: absolute;
+  margin-left: 650px;
+  img {
+    height: 300px;
+  }
+}
