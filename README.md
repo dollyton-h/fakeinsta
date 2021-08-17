@@ -1,4 +1,4 @@
-# fakeinsta
+# Fake-insta
 
 Team Member:
 
