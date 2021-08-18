@@ -33,7 +33,7 @@ function HomePage() {
   });
 
   useEffect(() => {
-    document.title = "Fake-Insta";  
+    document.title = "Fake-Insta";
   }, []);
   return (
     <div>
@@ -44,7 +44,7 @@ function HomePage() {
               <img src={logo} />
             </div>
           </Link>
-          <input type="text" placeholder="Search" disabled />
+          <input className="sea" type="text" placeholder="Search" disabled />
 
           <ul className="nav">
             <li>
@@ -112,7 +112,7 @@ function HomePage() {
 
           <div className="conten-photo">
             <div className="main-content1">
-              <div>
+              <div className="coob">
                 <img className="user-con" src={user} />
                 <p>Dollyton Hutapea</p>
                 <BsThreeDots fontSize={25} />

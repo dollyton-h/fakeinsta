@@ -8,13 +8,13 @@
 }
 
 .login {
-    min-height: 200vh;
-    overflow: auto;
-    background-color: #F5F5F5;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding-top: 8vh;
+  min-height: 200vh;
+  overflow: auto;
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 8vh;
 }
 .left {
   margin-right: 10vh;
@@ -28,8 +28,8 @@
     height: 25vw;
     background-color: white;
     img {
-    padding-top: 1.5vw;
-    padding-bottom: 40px;
+      padding-top: 1.5vw;
+      padding-bottom: 40px;
     }
     .kolom {
       flex-direction: row;
@@ -41,11 +41,11 @@
         border: 1px solid rgb(128, 128, 128, 0.3);
         margin-top: 10px;
         padding-left: 10px;
-        background-color: rgba(243,229,229,0.3);
+        background-color: rgba(243, 229, 229, 0.3);
         border-radius: 3px;
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
       }
-      
     }
     .btn-login {
       background-color: #94787c;
@@ -83,8 +83,8 @@
 .password {
   i {
     position: absolute;
-    right: 26.5%;
-    top: 39%;
+    right: 23%;
+    top: 41.7%;
     color: #a67474;
     :hover {
       color: #983f47;
