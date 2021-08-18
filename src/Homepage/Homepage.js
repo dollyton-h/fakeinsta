@@ -23,7 +23,7 @@ function HomePage() {
   });
 
   useEffect(() => {
-    document.title = "Fake-Insta";
+    document.title = "Fake-Insta";  
   }, []);
   return (
     <div className="main" id="main">

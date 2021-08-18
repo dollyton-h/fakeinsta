@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+
+.login {
+    min-height: 200vh;
+    overflow: auto;
+    background-color: #F5F5F5;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 8vh;
+}
+.left {
+  margin-right: 10vh;
+}
+.right {
+  margin-top: 1vw;
+  padding-left: 1vw;
+  .box-1 {
+    border: 1px solid rgb(128, 128, 128, 0.3);
+    width: 25vw;
+    height: 25vw;
+    background-color: white;
+    img {
+    padding-top: 1.5vw;
+    padding-bottom: 40px;
+    }
+    .kolom {
+      flex-direction: row;
+      justify-content: center;
+      text-align: center;
+      input {
+        width: 80%;
+        height: 2.5vw;
+        border: 1px solid rgb(128, 128, 128, 0.3);
+        margin-top: 10px;
+        padding-left: 10px;
+        background-color: rgba(243,229,229,0.3);
+        border-radius: 3px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      }
+      
+    }
+    .btn-login {
+      background-color: #94787c;
+      margin: 38px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 3px;
+    }
+  }
+  .box-2 {
+    background-color: white;
+    margin-top: 1.5vw;
+    border: 1px solid rgb(128, 128, 128, 0.3);
+    height: 2.8vw;
+    text-align: center;
+    padding-top: 15px;
+    .text1 {
+      font-size: 14px;
+      a {
+        color: #983f47;
+        font-weight: bold;
+      }
+    }
+  }
+  .download {
+    margin-top: 1vw;
+    p {
+      padding-bottom: 10px;
+    }
+  }
+}
+.password {
+  i {
+    position: absolute;
+    right: 26.5%;
+    top: 39%;
+    color: #a67474;
+    :hover {
+      color: #983f47;
+      cursor: pointer;
+    }
+  }
+}
