@@ -110,7 +110,7 @@ const Login = () => {
             </div>
             <div className="right">
                 <div className="box-1">
-                    <img src={logo} width="220" height="160"></img>
+                    <img src={logo} width="220" height="140"></img>
                     <Form onSubmit={loginHandler} ref={form}>
                         <div className="kolom">
                             <Input
