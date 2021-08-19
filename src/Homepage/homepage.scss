@@ -81,6 +81,9 @@
     border: none;
     color: #528e86;
     position: relative;
+    svg {
+      color: #bd7676;
+    }
 
     a {
       position: relative;
@@ -99,8 +102,10 @@
         width: 0px;
         height: 2px;
         left: 50%;
+        top: 24px;
         bottom: 0;
-        background-color: #c49898;
+        background-color: #bd7676;
+
         transition: all ease-in-out 0.15s;
       }
       &:hover::after {
