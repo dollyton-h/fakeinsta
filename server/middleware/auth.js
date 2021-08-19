@@ -50,24 +50,4 @@ routes.getTokenLogin = async (req, res) => {
     });
   }
 };
-
-routes.validateUser = async (req, res, next) => {
-  try {
-    const id = req.body.userId;
-    const token = req.headers.authorization;
-    const decoded = jwt.verify(token, process.env.SECRET_KEY);
-    if(decoded.userId == id) {
-        return next();
-    }
-    res.status(401).json({
-      statusText: "Unauthorized",
-      message: "Sorry, you are not allowed for doing this request, please register before doing this action!",
-    });
-  } catch(error) {
-    res.status(500).json({
-      statusText: "Internal Server Error",
-      message: error,
-    });
-  }
-}
 module.exports = routes;

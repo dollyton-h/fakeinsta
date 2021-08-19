@@ -13,10 +13,12 @@ app.use(
 );
 
 const userRoutes = require("./routes/userRoutes");
+const postRoutes = require("./routes/postRoutes");
 
 app.use(
   "/api/fakeInsta",
   userRoutes,
+  postRoutes,
 );
 
 app.get("/", (req, res) => {
