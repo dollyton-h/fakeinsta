@@ -17,14 +17,12 @@ export const login = async (email, password) => {
     throw error;
   }
 };
-export const register = async (first_name, last_name, email, password, pin) => {
-  const url = "https://biller-app-api.herokuapp.com/api/biller/signup";
+export const register = async (email, username, password) => {
+  const url = "https://fakes-insta.herokuapp.com/api/fakeInsta/register";
   const data = {
-    first_name: first_name,
-    last_name: last_name,
     email: email,
+    username: username,
     password: password,
-    pin: pin,
   };
   try {
     const response = await fetch(url, {

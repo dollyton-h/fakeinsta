@@ -20,7 +20,7 @@ const eye = <FontAwesomeIcon icon={faEye} />;
 const required = (value) => {
   if (!value) {
     return (
-      <div className="alert alert-danger" role="alert">
+      <div >
         Kolom tidak boleh kosong!
       </div>
     );
@@ -70,8 +70,8 @@ const Login = () => {
         // console.log(response, "response");
         // store.setItem("data", JSON.stringify(temp));
         // dispatch(userAct({ email, token }));
-        dispatch(userAct(token));
-        console.log(statusText);
+        // dispatch(userAct(token));
+        // console.log(statusText);
       })
 
       .catch((error) => {
