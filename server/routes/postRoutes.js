@@ -12,5 +12,7 @@ router.post(
     );
 
 router.get("/posting/myPost", tokenValidation.tokenVerify, postController.getAllPost);
+router.get("/posting/detailPost", tokenValidation.tokenVerify, postController.getPostById);
+router.delete("/posting/deletePost/:id", tokenValidation.tokenVerify, postController.deletePost);
 
 module.exports = router;

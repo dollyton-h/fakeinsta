@@ -81,6 +81,14 @@ routes.login = async (req, res, next) => {
       message: error.message,
     });
   }
+};
+
+routes.updateProfile = async (req, res) => {
+  try {
+    
+  } catch (error) {
+
+  }
 }
 
 module.exports = routes

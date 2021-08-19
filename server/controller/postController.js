@@ -62,4 +62,61 @@ routes.getAllPost = async (req, res) => {
       });
   }
 };
+
+routes.getPostById = async (req, res) => {
+  try {
+    let status = 200;
+    let message = "OK";
+    const postId = req.params.id;
+    const detailPost = await Post.findOne({
+        where: postId,
+    }); 
+    res.status(status).send({
+      status: status,
+      message: message,
+      data: detailPost,
+    }) 
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      status: 500,
+      message: "Failed to get user post detail",
+      erorr: error,
+    });
+  }
+};
+
+routes.deletePost = async (req, res) => {
+  try {
+    const postId = req.params.id;
+    const userId = req.body.userId;
+    const userPost = await Post.findOne({
+      where: {id: postId },
+    });
+    if(!userPost) {
+      res.status(404).send({
+        status: "Invalid Id",
+        message: "Post Not Found",
+      });
+    }
+    if(userId == userPost.userId) {
+      const dataPost = await Post.destroy({
+        where: { id: postId },
+      });
+    if(dataPost) {
+      await cloudinary.uploader.destroy(userPost.cloudinaryId);
+    }
+    res.status(200).send({
+      status: 200,
+      message: "Delete Success",
+    })
+    }
+  } catch (error) {
+      console.log(error);
+    res.status(500).send({
+      status: 500,
+      message: "Failed to delete",
+      });
+  }
+}
 module.exports = routes;
