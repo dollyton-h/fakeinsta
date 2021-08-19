@@ -11,6 +11,7 @@ const express = require("express")
 
 const app = express();
 
+app.use(cookieParser());
 const oneDay = 1000 * 60 * 60 * 24;
 app.use(sessions({
     secret: process.env.SECRET_KEY,
