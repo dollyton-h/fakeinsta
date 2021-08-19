@@ -19,11 +19,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const eye = <FontAwesomeIcon icon={faEye} />;
 const required = (value) => {
   if (!value) {
-    return (
-      <div className="alert alert-danger" role="alert">
-        Kolom tidak boleh kosong!
-      </div>
-    );
+    return <div>Kolom tidak boleh kosong!</div>;
   }
 };
 
@@ -58,20 +54,21 @@ const Login = () => {
     login(email, password)
       .then((response) => {
         store.setItem("token", response.user.token);
+        store.setItem("username", response.user.userDetail.username);
         setStatusText(response.statusText);
         console.log(response);
-        const { email, token, statusText } = response;
-        const decode = jwt_decode(token);
-        console.log(decode);
-        const temp = { token };
-        store.setItem("data", JSON.stringify(temp));
+        // const { email, token, statusText } = response;
+        // const decode = jwt_decode(token);
+        // console.log(decode);
+        // const temp = { token };
+        // store.setItem("data", JSON.stringify(temp));
         // const temp = { email, password, token };
         // console.log(temp, "temp");
         // console.log(response, "response");
         // store.setItem("data", JSON.stringify(temp));
         // dispatch(userAct({ email, token }));
-        dispatch(userAct(token));
-        console.log(statusText);
+        // dispatch(userAct(token));
+        // console.log(statusText);
       })
 
       .catch((error) => {

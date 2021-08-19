@@ -9,14 +9,14 @@ import { AiFillHome, AiOutlineHeart } from "react-icons/ai";
 import { FiSend } from "react-icons/fi";
 import { CgAddR } from "react-icons/cg";
 import { BsThreeDots } from "react-icons/bs";
-
+import axios from "axios";
 import { ImCompass2 } from "react-icons/im";
 
 //import ReactDOM from "react-dom";
 import "./homepage.scss";
 
 function HomePage() {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState([]);
   const myRef = useRef(null);
   const [scro, setScro] = useState(false);
 
@@ -26,6 +26,24 @@ function HomePage() {
   //   let element = document.getElementById(target);
   //   element && element.scrollIntoView({ behavior: "smooth", block: "start" });
   // }, []);
+
+  useEffect(() => {
+    const store = window.localStorage;
+    const token = store.getItem("token");
+    axios
+      .get("https://fakes-insta.herokuapp.com/api/fakeInsta/posting/myPost", {
+        headers: {
+          Authorization: token,
+        },
+      })
+      .then((response) => {
+        console.log(response.data.data);
+        setShow(response.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   window.addEventListener("scroll", function () {
     var heads = document.getElementById("heads");
@@ -117,8 +135,9 @@ function HomePage() {
                 <p>Dollyton Hutapea</p>
                 <BsThreeDots fontSize={25} />
               </div>
-
-              <img className="content1" src={asd} />
+              {show.map((e) => {
+                return <img className="content1" src={e.image} />;
+              })}
             </div>
           </div>
 

@@ -35,7 +35,7 @@
       flex-direction: row;
       justify-content: center;
       text-align: center;
-      input {
+      Input {
         width: 80%;
         height: 2.5vw;
         border: 1px solid rgb(128, 128, 128, 0.3);
@@ -45,6 +45,18 @@
         border-radius: 3px;
         font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
           "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      }
+      .password {
+        i {
+          position: fixed;
+          right: 26.5%;
+          top: 39%;
+          color: #a67474;
+          :hover {
+            color: #983f47;
+            cursor: pointer;
+          }
+        }
       }
     }
     .btn-login {
@@ -77,18 +89,6 @@
     margin-top: 1vw;
     p {
       padding-bottom: 10px;
-    }
-  }
-}
-.password {
-  i {
-    position: absolute;
-    right: 26.5%;
-    top: 39%;
-    color: #a67474;
-    :hover {
-      color: #983f47;
-      cursor: pointer;
     }
   }
 }
