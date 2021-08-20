@@ -1,24 +1,60 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-scroll";
 import logo from "../assets/logo.png";
 import user from "../assets/dollyton.png";
 import asd from "../assets/asd.png";
 import { motion } from "framer-motion";
-
+import { postingPhoto } from "../Services/userService";
 import { AiFillHome, AiOutlineHeart } from "react-icons/ai";
 import { FiSend } from "react-icons/fi";
 import { CgAddR } from "react-icons/cg";
 import { BsThreeDots } from "react-icons/bs";
 import axios from "axios";
 import { ImCompass2 } from "react-icons/im";
+import Modal from "react-modal";
+import ModalLog from "react-modal";
+import { useHistory } from "react-router-dom";
 
 //import ReactDOM from "react-dom";
 import "./homepage.scss";
 
 function HomePage() {
   const [show, setShow] = useState([]);
-  const myRef = useRef(null);
-  const [scro, setScro] = useState(false);
+  const [description, setDescription] = useState("");
+  const [selectedFile, setSelectedFile] = useState("");
+  const [preview, setPreview] = useState("");
+  const [open, setOpen] = useState(false);
+  const [modalLog, setModalLog] = useState(false);
+  const history = useHistory();
+  useEffect(() => {
+    if (!selectedFile) {
+      setPreview(undefined);
+      return;
+    }
+
+    const objectUrl = URL.createObjectURL(selectedFile);
+    setPreview(objectUrl);
+    return () => URL.revokeObjectURL(objectUrl);
+  }, [selectedFile]);
+
+  const onSelectFile = (e) => {
+    if (!e.target.files || e.target.files.length === 0) {
+      setSelectedFile(undefined);
+      return;
+    }
+    setSelectedFile(e.target.files[0]);
+  };
+
+  const postingHandler = (e) => {
+    const store = window.localStorage;
+    postingPhoto(description, selectedFile)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   // useEffect(() => {
   //   let url = window.location.href.split("/");
@@ -53,6 +89,17 @@ function HomePage() {
   useEffect(() => {
     document.title = "Fake-Insta";
   }, []);
+  const store = window.localStorage;
+  const nama = store.getItem("username");
+  console.log(preview);
+  console.log(description);
+
+  const logoutHandler = () => {
+    history.push("/");
+    const store = window.localStorage;
+    store.clear("");
+    window.location.reload();
+  };
   return (
     <div>
       <div className="main" id="main">
@@ -78,7 +125,12 @@ function HomePage() {
             </li>
 
             <li>
-              <Link to="skill-main" smooth={true} duration={1000}>
+              <Link
+                onClick={(e) => setOpen(true)}
+                to="skill-main"
+                smooth={true}
+                duration={1000}
+              >
                 <CgAddR fontSize={25} />
               </Link>
             </li>
@@ -123,23 +175,34 @@ function HomePage() {
           <div className="side-bar">
             <img src={user} />
             <p className="usernm">
-              dolytonn<p>Dollyton Hutapea</p>
+              {store.getItem("username")}
+              <p>Nandra Caaaputra</p>
             </p>
-            <p className="alihkan">Alihkan</p>
+            <p onClick={(e) => setModalLog(true)} className="alihkan">
+              Alihkan
+            </p>
           </div>
 
-          <div className="conten-photo">
-            <div className="main-content1">
-              <div className="coob">
-                <img className="user-con" src={user} />
-                <p>Dollyton Hutapea</p>
-                <BsThreeDots fontSize={25} />
+          {show.map((e) => {
+            return (
+              <div className="conten-photo">
+                <div className="main-content1">
+                  <div className="coob">
+                    <img className="user-con" src={user} />
+                    <p>{store.getItem("username")}</p>
+                    <BsThreeDots fontSize={25} />
+                  </div>
+                  <div className="cont-det">
+                    <img className="content1" src={e.image} />
+                    <p>
+                      {store.getItem("username")}
+                      <span>{e.description}</span>
+                    </p>
+                  </div>
+                </div>
               </div>
-              {show.map((e) => {
-                return <img className="content1" src={e.image} />;
-              })}
-            </div>
-          </div>
+            );
+          })}
 
           <div className="ffa">
             <div className="saran">
@@ -164,7 +227,7 @@ function HomePage() {
             <div className="user-rec1">
               <img src={user} />
               <p className="usernm-rec">
-                dolytonn<p>New in Fake-Insta</p>
+                dolytonn<p>News in Fake-Insta</p>
               </p>
               <p className="user-rec-ikuti">Ikuti</p>
             </div>
@@ -178,6 +241,48 @@ function HomePage() {
           </div>
         </div>
       </div>
+      <Modal isOpen={open} onRequestClose={() => setOpen(false)}>
+        <div className="fot-pre">
+          <img className="con-picturese" src={preview} />
+        </div>
+
+        <div className="upload-btn-wrapper">
+          <br />
+          <input
+            // multiple="multiple"
+            // value={selectedFile}
+            // name="myfile"
+            className="input-profile-photo"
+            type="file"
+            accept="image/*"
+            onChange={onSelectFile}
+          />
+        </div>
+        <br />
+        <div className="profile-setting-name">
+          <input
+            value={description}
+            className="input-profile-setting"
+            type="text"
+            placeholder="insert Description"
+            onChange={(e) => setDescription(e.target.value)}
+          />
+        </div>
+        <button className="btn-pos" onClick={() => postingHandler()}>
+          Post
+        </button>
+      </Modal>
+      <ModalLog isOpen={modalLog} onRequestClose={() => setModalLog(false)}>
+        <div>
+          <hr />
+          <div className="modal-log">
+            <img src={user} />
+            <p>{store.getItem("username")}</p>
+            <button onClick={logoutHandler}>Logout</button>
+          </div>
+          <hr />
+        </div>
+      </ModalLog>
     </div>
   );
 }

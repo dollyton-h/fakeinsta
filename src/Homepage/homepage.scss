@@ -13,6 +13,14 @@
   min-height: 300vh;
 }
 
+.ReactModal__Content {
+  height: 500px;
+  width: 500px;
+  margin-top: 100px;
+  margin-left: 480px;
+  border-radius: 10px !important;
+}
+
 .heads {
   top: 0;
   left: 0;
@@ -130,7 +138,7 @@
 
 .content-wrap {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   justify-content: stretch;
   row-gap: 1em;
   column-gap: 1em;
@@ -139,7 +147,8 @@
     margin-top: 170px;
     background-color: red;
     justify-self: start;
-    margin-left: 40px;
+    left: 895px;
+    position: absolute;
     img {
       position: fixed;
       width: 60px;
@@ -225,7 +234,8 @@
       margin: 20px 0px 0px 20px;
     }
     .content1 {
-      width: 750px;
+      width: 700px;
+      height: 500px;
       margin-top: 20px;
       border-top: 1px solid #e7e7e7;
     }
@@ -233,6 +243,9 @@
 }
 
 .ffa {
+  position: absolute;
+  top: 360px;
+  left: 860px;
   .saran {
     margin-top: -40px;
     display: flex;
@@ -308,5 +321,80 @@
     font-size: 12px;
     position: fixed;
     margin-left: 295px;
+  }
+}
+.fot-pre {
+  width: 200px;
+  height: 200px;
+  margin: auto;
+}
+.con-picturese {
+  height: 200px;
+  width: 200px;
+  margin: 10px 0px 0px 0px;
+}
+
+.cont-det {
+  p {
+    font-weight: bold;
+    margin: 20px 0px 0px -470px;
+  }
+  span {
+    font-weight: normal;
+    margin-left: 50px;
+  }
+}
+
+.input-profile-setting {
+  border: 1px solid brown;
+  height: 70px;
+  text-indent: 10px;
+  margin-left: 130px;
+  margin-top: 30px;
+  border-radius: 10px;
+}
+
+.btn-pos {
+  margin: 30px 0px 0px 130px;
+  height: 40px;
+  width: 200px;
+  background-color: brown;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+  letter-spacing: 2px;
+}
+
+.input-profile-photo {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  margin: 0px 0px 0px 180px;
+}
+
+.modal-log {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  img {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    margin: 20px 0px 0px 20px;
+  }
+  p {
+    font-size: 15px;
+    font-weight: bold;
+    margin: 38px 0px 0px -90px;
+  }
+
+  button {
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: brown;
+    color: white;
+    font-size: 15px;
+    letter-spacing: 2px;
+    margin: 20px 0px 0px 10px;
   }
 }
